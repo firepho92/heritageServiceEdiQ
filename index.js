@@ -1,6 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
+const { tokenVerification } = require('./middleware/tokenVerification')
+const openRoutes = require('./routes/publicRoutes')
 
 const app = express()
 
@@ -16,5 +18,9 @@ app.use((req, res, next) => {
   res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE')
   next()
 })
+
+app.use(tokenVerification)
+
+app.use('/', openRoutes)
 
 app.listen(8500, () => console.log('Escuchando en el puerto 8500'))
