@@ -5,6 +5,7 @@ const signin = (req, res) => {
   const token = jwt.sign(user, 'pana', {
     expiresIn: 60 * 60 * 24
   })
+  console.log(token)
   res.send(token)
 }
 

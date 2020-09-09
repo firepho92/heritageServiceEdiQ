@@ -1,4 +1,4 @@
-const getProducts = async(req, res) => {
+const getProducts = async (req, res) => {
   try {
     const products = await readProducts()
     res.send(products)
@@ -8,6 +8,16 @@ const getProducts = async(req, res) => {
   }
 }
 
+const postProduct = async (req, res) => {
+  const { product } = req.body
+  try {
+
+  } catch(e) {
+    
+  }
+}
+
 module.exports = {
-  getProducts
+  getProducts,
+  postProduct
 }

@@ -1,3 +1,5 @@
+const mongoose = require('mongoose')
+
 const readProducts = async () => {
   try {
     return await readProductsDB()

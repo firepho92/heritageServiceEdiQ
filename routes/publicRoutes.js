@@ -6,7 +6,7 @@ const router = Router()
 
 //router.get('/producto/:id')
 router.post('/', (req, res) => res.sendStatus(200))
-router.get('/productos', getProducts)
+router.get('/products', getProducts)
 
 //Authentication
 router.post('/authentication', signin)
