@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const { tokenVerification } = require('./middleware/tokenVerification')
 const publicRoutes = require('./routes/publicRoutes')
+const editorRoutes = require('./routes/editorRoutes')
 
 const app = express()
 
@@ -19,8 +20,10 @@ app.use((req, res, next) => {
   next()
 })
 
+app.use('/', publicRoutes)
+
 app.use(tokenVerification)
 
-app.use('/', publicRoutes)
+app.use('/', editorRoutes)
 
 app.listen(8500, () => console.log('Escuchando en el puerto 8500'))
