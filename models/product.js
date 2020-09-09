@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const Product = new Schema({
   title: { type: String },
-  price: { type:  },
+  price: { type: Number },
   cover: { type: String },
   pages: { type: Array, default: [] },
   author: { type: Object },
