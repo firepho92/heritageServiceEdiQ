@@ -1,11 +1,10 @@
 const { Router } = require('express')
-const { getProducts } = require('../controllers/productsController')
+const { getProducts, postProduct } = require('../controllers/productsController')
 const { signin } = require('../controllers/authenticationController')
 
 const router = Router()
 
 //router.get('/producto/:id')
-router.post('/', (req, res) => res.sendStatus(200))
 router.get('/products', getProducts)
 
 //Authentication
