@@ -14,7 +14,7 @@ const readProducts = async () => {
 const createProduct = async (product) => {
   try {
     const newProduct = new ProductModel(product)
-    return await newUser.save()
+    return await newProduct.save()
   } catch (e) {
     throw e
   }
