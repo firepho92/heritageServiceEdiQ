@@ -1,9 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
+const mongoose = require('mongoose')
 const { tokenVerification } = require('./middleware/tokenVerification')
 const publicRoutes = require('./routes/publicRoutes')
 const editorRoutes = require('./routes/editorRoutes')
+const { dbData } = require('./config')
 
 const app = express()
 
@@ -25,5 +27,10 @@ app.use('/', publicRoutes)
 app.use(tokenVerification)
 
 app.use('/', editorRoutes)
+
+mongoose.connect(dbData().url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, res) => {
+  if(err) console.log('Error connecting to database: ' + err)
+  return true
+})
 
 app.listen(8500, () => console.log('Escuchando en el puerto 8500'))

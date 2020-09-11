@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const productSchema = require('../models/product')
-const ProductModel = mongoose.model('Product')
+const ProductModel = mongoose.model('Product', productSchema)
 
 const readProducts = async () => {
   try {
@@ -20,7 +20,17 @@ const createProduct = async (product) => {
   }
 }
 
+const updateProduct = async (productUpdated) => {
+  try{
+    console.log(productUpdated)
+    //const product = await ProductModel.findOneAndUpdate(productUpdated._id, pro)
+  } catch(e) {
+
+  }
+}
+
 module.exports = {
   readProducts,
-  createProduct
+  createProduct,
+  updateProduct
 }
