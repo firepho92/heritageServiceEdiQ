@@ -22,8 +22,8 @@ const createProduct = async (product) => {
 
 const updateProduct = async (productUpdated) => {
   try{
-    console.log(productUpdated)
-    //const product = await ProductModel.findOneAndUpdate(productUpdated._id, pro)
+    const { _id } = productUpdated
+    return await ProductModel.findOneAndUpdate({_id: _id}, productUpdated)
   } catch(e) {
 
   }
