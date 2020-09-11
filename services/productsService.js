@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const productSchema = require('../models/product')
-const ProductModel = mongoose.model('Product', productSchema)
+const ProductModel = mongoose.model('Product')
 
 const readProducts = async () => {
   try {
