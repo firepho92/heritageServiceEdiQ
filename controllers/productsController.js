@@ -35,5 +35,6 @@ const putProduct = async (req, res) => {
 
 module.exports = {
   getProducts,
-  postProduct
+  postProduct,
+  putProduct
 }
