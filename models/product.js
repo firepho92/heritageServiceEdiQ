@@ -8,7 +8,12 @@ const Product = new Schema({
   pages: { type: Array, default: [] },
   author: { type: Object },
   created: { type: Date },
-  status: { type: Boolean }
+  status: { type: Boolean },
+  level: { type: String },
+  grade: { type: String },
+  subject: { type: String },
+  trimester: { type: String },
+  baseColor: { type: String }
 })
 
 module.exports = mongoose.model('Product', Product)

@@ -22,13 +22,15 @@ app.use((req, res, next) => {
   next()
 })
 
+app.use(express.static('public'))
+
 app.use('/', publicRoutes)
 
 app.use(tokenVerification)
 
 app.use('/', editorRoutes)
 
-mongoose.connect(dbData().url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, res) => {
+mongoose.connect(dbData().url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, (err, res) => {
   if(err) console.log('Error connecting to database: ' + err)
   return true
 })
