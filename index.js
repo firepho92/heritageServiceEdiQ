@@ -6,6 +6,7 @@ const { tokenVerification } = require('./middleware/tokenVerification')
 const publicRoutes = require('./routes/publicRoutes')
 const editorRoutes = require('./routes/editorRoutes')
 const { dbData } = require('./config')
+const resourceMonitorMiddlewareCB = require('express-watcher').resourceMonitorMiddlewareCB
 
 const app = express()
 
@@ -20,6 +21,12 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
   res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE')
   next()
+})
+
+app.use((req, res, next) => {
+  resourceMonitorMiddlewareCB(req, res, next, function(diffJson){
+    console.log(' diffJson : ', diffJson)
+  })
 })
 
 app.use(express.static('public'))

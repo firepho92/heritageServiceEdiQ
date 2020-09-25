@@ -4,7 +4,7 @@ const ProductModel = mongoose.model('Product')
 
 const readProducts = async () => {
   try {
-    return await readProductsDB()
+    return await ProductModel.find()
   } catch(e) {
     console.log(e)
     throw e
